@@ -20,8 +20,8 @@ include_directories(
   ${EIGEN_INCLUDE_DIRS}
   )
 
-add_library(qhulleigen SHARED src/qhulleigen.cpp)
-target_link_libraries(qhulleigen
+add_library(${PROJECT_NAME} SHARED src/qhulleigen.cpp)
+target_link_libraries(${PROJECT_NAME}
   qhull
   ${EIGEN_LIBRARIES})
 
