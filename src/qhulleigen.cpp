@@ -46,7 +46,7 @@ namespace qhulleigen{
         p.reserve(dim);
         setT *vertices;
         if (dim==3) vertices = qh_facet3vertex (facet); //時計回りになる
-        else vertices = facet->vertices;
+        else vertices = facet->vertices; // dim=3以外は時計回りが定義できないので頂点のvertexを順番は適当でそのまま返す
         vertexT **vertexp;
         FOREACHvertexreverse12_ (vertices) {
           if (j<dim) {
