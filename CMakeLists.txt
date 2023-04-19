@@ -22,7 +22,7 @@ include_directories(
 
 add_library(${PROJECT_NAME} SHARED src/qhulleigen.cpp)
 target_link_libraries(${PROJECT_NAME}
-  qhull
+  qhull_r
   ${EIGEN_LIBRARIES})
 
 install(TARGETS ${PROJECT_NAME}

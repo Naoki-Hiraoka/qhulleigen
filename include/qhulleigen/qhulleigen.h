@@ -1,11 +1,8 @@
 #ifndef QHULLEIGEN_H
 #define QHULLEIGEN_H
 
-extern "C" {
-#include <qhull/qhull_a.h>
-}
-
 #include <Eigen/Eigen>
+
 
 namespace qhulleigen{
   // In = [v1 v2 v3 v4 ..]
