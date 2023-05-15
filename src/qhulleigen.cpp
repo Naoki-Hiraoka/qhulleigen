@@ -89,6 +89,20 @@ namespace qhulleigen{
     return true;
   }
 
+  bool convexhull(const Eigen::MatrixXd& In, Eigen::MatrixXd& Out, Eigen::MatrixXi& Face, bool calc_face){
+    std::vector<std::vector<int> > Face_;
+    if(!convexhull(In, Out, Face_, calc_face)) return false;
+    if(Face_.size() > 0){
+      Face.resize(Face_[0].size(),Face_.size());
+      for(int i=0;i<Face_.size();i++){
+        for(int j=0;j<Face_[i].size();j++){
+          Face(j,i) = Face_[i][j];
+        }
+      }
+    }
+    return true;
+  }
+
   bool convexhull(const Eigen::MatrixXd& In, Eigen::MatrixXd& Out){
     std::vector<std::vector<int> > Face;
     return convexhull(In, Out, Face, false);
