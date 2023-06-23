@@ -14,6 +14,10 @@ extern "C" {
 
 namespace qhulleigen{
   bool convexhull(const Eigen::MatrixXd& In, Eigen::MatrixXd& Out, std::vector<std::vector<int> >& Face, bool calc_face){
+    if(In.cols() < 4) {
+      Out = In;
+      return false;
+    }
     // convex hull by qhull.
     int numVertices = In.cols();
     int dim = In.rows();
@@ -36,6 +40,7 @@ namespace qhulleigen{
       qh_freeqhull(qh, !qh_ALL);
       int curlong, totlong;
       qh_memfreeshort (qh, &curlong, &totlong);
+      Out = In;
       return false;
     }
 
